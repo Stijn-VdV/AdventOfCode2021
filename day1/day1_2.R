@@ -5,10 +5,6 @@
 ## Challenge description: Count the number of times a depth measurement increases
 ##                        from the previous measurement.
 ##
-## Author: Stijn Van de Vondel
-##
-## Date Created: 2021-12-01
-##
 ## Copyright (c) Stijn Van de Vondel, 2021
 ## ---------------------------
 
