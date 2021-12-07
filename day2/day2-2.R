@@ -39,6 +39,18 @@ After following these new instructions, you would have a horizontal position of
 # - Import data ----
 input <- readLines("day2/day2input.txt", warn = FALSE)
 
+# function to list each element of input in x/y direction and integer
+navigate_fun <- function(x) {
+  # extract direction
+  nav_dir <- strsplit(x, " ")[[1]][1]
+
+  # extract steps
+  nav_int <- strsplit(x, " ")[[1]][2] |> as.integer()
+
+  # return in list
+  list(nav_dir, nav_int)
+}
+
 # - Calculate final x, y and x*y positions ----
 # set starting X and Y positions
 x <- 0
