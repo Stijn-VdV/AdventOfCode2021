@@ -80,18 +80,20 @@ calc_life_support <- function(input) {
   str_O2 <- str_res
   str_CO2 <- str_res
 
+  # loop to find oxygen generator rating
   for (i in 1:nrow(str_O2)) {
-    # if dataframe has <= 2 columns -> extract bit with 1 in i'th position
-    if (length(str_O2) <= 2) {
 
+    if (length(str_O2) <= 2) {
+      # if dataframe has <= 2 columns -> extract bit with 1 in i'th position
       str_O2 <- str_O2[which(str_O2[i, ] == 1)][[1]]
 
+      # convert resulting string to integer
       res_O2 <- strtoi(paste0(str_O2, collapse = ""), base = 2L)
 
+      # break loop -> oxygen generator rating has been found
       break
 
     }  else {
-
       # calculate rowsum = number of times 1 occurs
       row_sum <- rowSums(str_O2)
 
@@ -101,23 +103,25 @@ calc_life_support <- function(input) {
       # keep only bits with most_frequent_int in position i
       str_O2 <- str_O2[which(str_O2[i, ] == most_frequent_int)]
 
+      # move to next iteration
       i <- i + 1
     }
-
   }
 
+  # loop to find CO2 scrubber rating
   for (i in 1:nrow(str_CO2)) {
-    # if dataframe has <= 2 columns -> extract bit with 0 in i'th position
-    if (length(str_CO2) <= 2) {
 
+    if (length(str_CO2) <= 2) {
+      # if dataframe has <= 2 columns -> extract bit with 0 in i'th position
       str_CO2 <- str_CO2[which(str_CO2[i, ] == 0)][[1]]
 
+      # convert resulting string to integer
       res_CO2 <- strtoi(paste0(str_CO2, collapse = ""), base = 2L)
 
+      # break loop -> CO2 scrubber rating has been found
       break
 
     }  else {
-
       # calculate rowsum = number of times 1 occurs
       row_sum <- rowSums(str_CO2)
 
@@ -127,14 +131,14 @@ calc_life_support <- function(input) {
       # keep only bits with most_frequent_int in position i
       str_CO2 <- str_CO2[which(str_CO2[i, ] == most_frequent_int)]
 
+      # move to next iteration
       i <- i + 1
     }
-
   }
 
+  # print results
   print(paste("O2 generator rating x CO2 scrubber rating:"))
   print(paste(res_O2, "x", res_CO2, "=", res_O2*res_CO2))
-
 }
 
 # use function
