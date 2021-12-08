@@ -2,9 +2,6 @@
 ## Advent of Code 2021
 ## Day 3 - part 1
 ##
-## Challenge description: See below
-##
-##
 ## Copyright (c) Stijn Van de Vondel, 2021
 ## ---------------------------
 # - Instructions ----
